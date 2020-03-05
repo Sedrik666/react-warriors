@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const MovieItem = ({title, vote_average}) => {
+const movie = {
+    title: 'Avengers: Infinity War',
+    vote_average: 8.5,
+    image: 'https://upload.wikimedia.org/wikipedia/en/4/4d/Avengers_Infinity_War_poster.jpg',
+    overview: 'Avengers: Infinity War is a 2018 American superhero film based on the Marvel Comics superhero team the Avengers'
+};
+
+const Image = (props) => <img {...props}/>;
+
+const MovieItem = ({data:{title, vote_average, image, overview}}) => {
+    //const [state, setState] = useState();
     return(
-        <div>
+        <>
+            <Image src={image} alt={title}/>
             <p>{title}</p>
             <p>{vote_average}</p>
-        </div>
+        </>
     )
 };
 
-const App = () => {
-  return (
-    <div>
-      <MovieItem title='titleNew' vote_average={10.0}/>
-    </div>
-  );
-}
+const App = () => <MovieItem data={movie}/>;
 
 export default App;
