@@ -1,9 +1,18 @@
 import React from 'react';
 
-function App() {
+const MovieItem = ({title, vote_average}) => {
+    return(
+        <div>
+            <p>{title}</p>
+            <p>{vote_average}</p>
+        </div>
+    )
+};
+
+const App = () => {
   return (
     <div>
-      Create React App
+      <MovieItem title='titleNew' vote_average={10.0}/>
     </div>
   );
 }
